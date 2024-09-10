@@ -1,17 +1,16 @@
-//
-//  WikiLauncherApp.swift
-//  WikiLauncher
-//
-//  Created by Danil Mironov on 09.09.2024.
-//
-
 import SwiftUI
 
 @main
 struct WikiLauncherApp: App {
+    private let diContainer: DIContainer
+
+    init() {
+        self.diContainer = DIContainer()
+    }
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView(viewModel: MainViewModel(diContainer: diContainer))
         }
     }
 }

@@ -1,10 +1,3 @@
-//
-//  WikiLauncherUITestsLaunchTests.swift
-//  WikiLauncherUITests
-//
-//  Created by Danil Mironov on 09.09.2024.
-//
-
 import XCTest
 
 final class WikiLauncherUITestsLaunchTests: XCTestCase {
