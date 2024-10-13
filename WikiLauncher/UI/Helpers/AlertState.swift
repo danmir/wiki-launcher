@@ -1,6 +1,17 @@
 import Foundation
 
-enum AlertState: Equatable {
+enum AlertState: Equatable, Identifiable {
+    var id: UUID {
+        switch self {
+        case .none:
+            return UUID()
+        case .singleButton(let title, let message, let buttonText, _):
+            return UUID(uuidString: "\(title)-\(message)-\(buttonText)".hashValue.description)!
+        case .doubleButton(let title, let message, let primaryButtonText, let secondaryButtonText, _, _):
+            return UUID(uuidString: "\(title)-\(message)-\(primaryButtonText)-\(secondaryButtonText)".hashValue.description)!
+        }
+    }
+
     case none
     case singleButton(
         title: String,

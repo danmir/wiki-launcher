@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD9220BA2CBBC0760072A85F /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9220B92CBBC0760072A85F /* AlertHelper.swift */; };
+		BD9220BD2CBBC0D80072A85F /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9220BC2CBBC0D80072A85F /* ErrorView.swift */; };
+		BD9220BF2CBBC10D0072A85F /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9220BE2CBBC10D0072A85F /* EmptyStateView.swift */; };
 		BDD5144E2C8F8AB70014BC80 /* WikiLauncherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5144D2C8F8AB70014BC80 /* WikiLauncherApp.swift */; };
 		BDD514522C8F8AB80014BC80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD514512C8F8AB80014BC80 /* Assets.xcassets */; };
 		BDD514562C8F8AB80014BC80 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD514552C8F8AB80014BC80 /* Preview Assets.xcassets */; };
@@ -66,6 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD9220B92CBBC0760072A85F /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		BD9220BC2CBBC0D80072A85F /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		BD9220BE2CBBC10D0072A85F /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		BDD5144A2C8F8AB70014BC80 /* WikiLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD5144D2C8F8AB70014BC80 /* WikiLauncherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiLauncherApp.swift; sourceTree = "<group>"; };
 		BDD514512C8F8AB80014BC80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,6 +143,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD9220BB2CBBC0D10072A85F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BD9220BC2CBBC0D80072A85F /* ErrorView.swift */,
+				BD9220BE2CBBC10D0072A85F /* EmptyStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BDD514412C8F8AB70014BC80 = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +218,7 @@
 		BDD5147C2C9051A30014BC80 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BD9220BB2CBBC0D10072A85F /* Views */,
 				BDD5149C2C90E5720014BC80 /* Helpers */,
 				BDD514892C905C040014BC80 /* MainModule */,
 				BDD514842C9057A10014BC80 /* CustomCoordinatesModule */,
@@ -264,6 +280,7 @@
 		BDD5149C2C90E5720014BC80 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				BD9220B92CBBC0760072A85F /* AlertHelper.swift */,
 				BDD5149D2C90E5790014BC80 /* AlertState.swift */,
 			);
 			path = Helpers;
@@ -465,6 +482,7 @@
 				BDD514792C8F9D750014BC80 /* LocationCell.swift in Sources */,
 				BDD514AE2C90F5090014BC80 /* MockExternalDeeplinkRouter.swift in Sources */,
 				BDD514BD2C9109360014BC80 /* ResponseParser.swift in Sources */,
+				BD9220BA2CBBC0760072A85F /* AlertHelper.swift in Sources */,
 				BDD514862C9057C70014BC80 /* CustomCoordinatesViewModel.swift in Sources */,
 				BDD5149B2C90B5D50014BC80 /* ExternalDeeplinkRouter.swift in Sources */,
 				BDD514A72C90F2BF0014BC80 /* LoggerMock.swift in Sources */,
@@ -473,11 +491,13 @@
 				BDD514922C90728E0014BC80 /* Logger.swift in Sources */,
 				BDD514B22C90F8910014BC80 /* MockLocationsService.swift in Sources */,
 				BDD514B42C90F8D10014BC80 /* MockLocationBuilder.swift in Sources */,
+				BD9220BD2CBBC0D80072A85F /* ErrorView.swift in Sources */,
 				BDD514802C9053D80014BC80 /* DIContainer.swift in Sources */,
 				BDD514A42C90EF650014BC80 /* LocationBuilder.swift in Sources */,
 				BDD514C92C910AD50014BC80 /* MockMiddleware.swift in Sources */,
 				BDD5149E2C90E5790014BC80 /* AlertState.swift in Sources */,
 				BDD514832C9055690014BC80 /* LocationsListViewModel.swift in Sources */,
+				BD9220BF2CBBC10D0072A85F /* EmptyStateView.swift in Sources */,
 				BDD514902C9070DF0014BC80 /* LocationsService.swift in Sources */,
 				BDD514952C9089C70014BC80 /* ConsoleLogger.swift in Sources */,
 				BDD5147E2C90531F0014BC80 /* WikiDeeplinkService.swift in Sources */,

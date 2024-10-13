@@ -2,7 +2,6 @@ import SwiftUI
 
 struct CustomCoordinatesView: View {
     @StateObject private var viewModel: CustomCoordinatesViewModel
-
     @State private var latitude: String = ""
     @State private var longitude: String = ""
 
@@ -16,45 +15,44 @@ struct CustomCoordinatesView: View {
                 Section(header: Text("Coordinates")) {
                     TextField("Latitude", text: $latitude)
                         .keyboardType(.decimalPad)
+                        .accessibilityLabel("Latitude input")
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     TextField("Longitude", text: $longitude)
                         .keyboardType(.decimalPad)
+                        .accessibilityLabel("Longitude input")
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
-                Button(action: {
-                    viewModel.validateAndOpenMap(latitude: latitude, longitude: longitude)
-                }) {
-                    Text("Open in Maps")
-                        .frame(maxWidth: .infinity, alignment: .center)
-                }
-                .alert(isPresented: Binding<Bool>(
-                    get: { if case .none = viewModel.alertState { return false } else { return true } },
-                    set: { _ in viewModel.alertState = .none }
-                )) {
-                    switch viewModel.alertState {
-                    case .singleButton(let title, let message, let buttonText, let action):
-                        return Alert(
-                            title: Text(title),
-                            message: Text(message),
-                            dismissButton: .default(Text(buttonText)) {
-                                action?()
-                            }
-                        )
-                    case .doubleButton(let title, let message, let primaryButtonText, let secondaryButtonText, let primaryAction, let secondaryAction):
-                        return Alert(
-                            title: Text(title),
-                            message: Text(message),
-                            primaryButton: .default(Text(primaryButtonText)) {
-                                primaryAction?()
-                            },
-                            secondaryButton: .cancel(Text(secondaryButtonText)) {
-                                secondaryAction?()
-                            }
-                        )
-                    case .none:
-                        return Alert(title: Text("Unknown Error"))
+                Section {
+                    Button(action: {
+                        viewModel.validateAndOpenMap(latitude: latitude, longitude: longitude)
+                    }) {
+                        Text("Open in Maps")
+                            .frame(maxWidth: .infinity, alignment: .center)
                     }
+                    .disabled(latitude.isEmpty || longitude.isEmpty)
+                    .buttonStyle(PrimaryButtonStyle())
+                    .accessibilityLabel("Open in Maps button")
                 }
             }
             .navigationTitle("Enter Coordinates")
+            .alert(isPresented: Binding<Bool>(
+                get: { if case .none = viewModel.alertState { return false } else { return true } },
+                set: { _ in viewModel.alertState = .none }
+            )) {
+                AlertHelper.createAlert(for: viewModel.alertState)
+            }
         }
+    }
+}
+
+struct PrimaryButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .cornerRadius(8)
+            .scaleEffect(configuration.isPressed ? 0.95 : 1)
+            .animation(.easeInOut(duration: 0.2), value: configuration.isPressed)
     }
 }
